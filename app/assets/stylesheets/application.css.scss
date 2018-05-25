@@ -12,11 +12,10 @@
  *
  *= require_tree .
  *= require_self
- *= require bootstrap
  *= require creative
  */
-/*@import 'bootstrap';
-@import 'bootstrap-sprockets';*/
+@import 'bootstrap';
+@import 'bootstrap-sprockets';
 
 html,body {
    background: black;
