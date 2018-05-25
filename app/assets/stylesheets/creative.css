@@ -60,6 +60,10 @@ h6 {
   color: rgba(255, 255, 255, 0.7);
 }
 
+.text-test {
+  color: rgba(000, 000, 000, 0.7);
+}
+
 section {
   padding: 8rem 0;
 }
