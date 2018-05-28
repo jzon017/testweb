@@ -21,7 +21,7 @@ body {
 hr {
   max-width: 50px;
   border-width: 3px;
-  border-color: #F05F40;
+  border-color: #FC4D4D;
 }
 
 hr.light {
@@ -29,7 +29,7 @@ hr.light {
 }
 
 a {
-  color: #F05F40;
+  color: #FC4D4D;
   -webkit-transition: all 0.2s;
   -moz-transition: all 0.2s;
   transition: all 0.2s;
@@ -46,6 +46,16 @@ h4,
 h5,
 h6 {
   font-family: 'Open Sans', 'Helvetica Neue', Arial, sans-serif;
+}
+
+.unselectable {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    font: bold 80px 'Open Sans' !important;
 }
 
 .bg-primary {
@@ -141,7 +151,7 @@ img::-moz-selection {
 @media (min-width: 992px) {
   #mainNav {
     border-color: transparent;
-    background-color: transparent;
+    background-color: transparent; 
   }
   #mainNav .navbar-brand {
     color: rgba(225, 225, 225, 0.7);
@@ -296,7 +306,7 @@ header.masthead p {
 }
 
 .text-primary {
-  color: #F05F40 !important;
+  color: #FC4D4D !important;
 }
 
 .btn {
