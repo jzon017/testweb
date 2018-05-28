@@ -238,6 +238,14 @@ header.masthead p {
   }
 }
 
+.global-box-50 {
+  max-width: 50%;
+}
+
+.global-box-30 {
+  max-width: 30%;
+}
+
 .service-box {
   max-width: 400px;
 }
