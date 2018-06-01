@@ -24,14 +24,15 @@
   </head>
 
   <body id= "page-top">
+    
      
-
-  <% if content_for?(:navbar) %>
-    <%= yield(:navbar) %>
-
-  <% else %>
-    <%# default navbar %>
     <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
+      
+    <!--a href="#">
+      <img src="/assets/icon.png">
+    </a-->
+
+
 
       <div class="container">
         <a class="navbar-brand js-scroll-trigger" href="#page-top">INSPECIT</a>
@@ -40,31 +41,24 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarResponsive">
           <ul class="navbar-nav ml-auto">
-            <li class="nav-item">
-              <a class="nav-link js-scroll-trigger" href="#about">About</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link js-scroll-trigger" href="#services">Services</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link js-scroll-trigger" href="#news">News</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link js-scroll-trigger" href="#global">Global Network</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link js-scroll-trigger" href="#contact">Contact</a>
-            </li>
+            <% if !logged_in? %>
+                <li><%= link_to 'Sign in', signin_path%></li>
+                <li><%= link_to 'Sign Up', signup_path%></li>
+            <% else %>
+            <li><%= link_to 'Log out', logout_path, method: :delete %></li>
+            <%end%>
           </ul>
         </div>
       </div>
     </nav>
-    <% end %>
+    <div class = "container">
 
+      <% flash.each do |type, message| %>
+      <div class="alert alert-<%= type %>"><%= message %></div>
+      <% end %>
+        
     <%= yield %>
-
-
-
+        </div>
 
     <!-- Bootstrap core JavaScript -->
     <script src="assets/jquery/jquery.min.js"></script>
