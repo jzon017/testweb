@@ -4,15 +4,16 @@ class SessionsController < ApplicationController
 	def create
 		user = User.find_by(email: params[:email])
 
-		if user && user.authenticate(params[:password])
-			session[:user_id] = user.id
+		 if user && user.authenticate(params[:password])
+		 	session[:user_id] = user.id
 
-			flash[:success] = "Welcome to InSpecIT Inc."
-			redirect_to root_path
-		else
-			flash.now[:danger] = "Your email or password is incorrect!"
-			render 'show'
-		end
+		 	flash[:success] = "Welcome to InSpecIT Inc."
+		 	redirect_to root_path
+		 else
+		 	flash.now[:danger] = "Your email or password is incorrect!"
+		 	render 'show'
+		 end
+		#User.create(name: "daryl", email: params[:email], password: params[:password])
 	end
 	def out
 		session[:user_id] = nil
