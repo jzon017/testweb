@@ -4,6 +4,8 @@ Rails.application.routes.draw do
   get 'phil' => 'pages#phil'
   get 'dtr' => 'employees#dtr'
   get 'contact' => 'pages#contact'
+  get 'services' => 'pages#services'
+  get 'home' => 'welcome#home'
   #get 'employees/dtr'
   #get '/pages', to: 'pages#phil', as: 'pages'
   #resources :employees
