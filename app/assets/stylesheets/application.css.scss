@@ -12,21 +12,16 @@
  *
  *= require_tree .
  *= require_self
+ *= require creative
  */
 @import 'bootstrap';
 @import 'bootstrap-sprockets';
 
 html,body {
-   background: #345678;
+   background: black;
  }
 
- #particles-js {
-   width: 100%;
-   height: 100%;
-   color: black;
-   position: absolute;
+.test {
+ z-index:1;
+}
 
-   background-repeat: no-repeat;
-   background-size: cover;
-   background-position: 50% 50%;
- }
