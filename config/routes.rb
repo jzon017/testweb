@@ -6,6 +6,9 @@ Rails.application.routes.draw do
   get 'contact' => 'pages#contact'
   get 'services' => 'pages#services'
   get 'home' => 'welcome#home'
+  get 'signin', to: 'sessions#show'
+  get 'signout', to: 'sessions#out'
+  post 'signin', to: 'sessions#create'
   #get 'employees/dtr'
   #get '/pages', to: 'pages#phil', as: 'pages'
   #resources :employees

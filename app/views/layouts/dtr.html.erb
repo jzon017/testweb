@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <title>InSpecIT Inc.</title>
     <link rel="shortcut icon" href="/assets/favicon.ico" />
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
@@ -16,12 +17,22 @@
     <!-- Plugin CSS -->
     <link href="assets/magnific-popup/magnific-popup.css" rel="stylesheet">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
-    <%= stylesheet_link_tag "pages" %>
+    <%= stylesheet_link_tag "creative" %>
       
+    <%= javascript_include_tag 'particles.min', 'app'%>
+
   </head>
 
   <body id= "page-top">
+    
+     
     <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
+      
+    <!--a href="#">
+      <img src="/assets/icon.png">
+    </a-->
+
+
 
       <div class="container">
         <a class="navbar-brand js-scroll-trigger" href="#page-top">INSPECIT</a>
@@ -30,20 +41,24 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarResponsive">
           <ul class="navbar-nav ml-auto">
-            <li class="nav-item">
-              <a class="nav-link js-scroll-trigger" href="#signin">Sign In</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link js-scroll-trigger" href="#signup">Sign Up</a>
-            </li>
+            <% if !logged_in? %>
+                <li><%= link_to 'Sign in', signin_path%></li>
+                <li><%= link_to 'Sign Up', signup_path%></li>
+            <% else %>
+            <li><%= link_to 'Log out', logout_path, method: :delete %></li>
+            <%end%>
           </ul>
         </div>
       </div>
     </nav>
+    <div class = "container">
+
+      <% flash.each do |type, message| %>
+      <div class="alert alert-<%= type %>"><%= message %></div>
+      <% end %>
+        
     <%= yield %>
-
-
-
+        </div>
 
     <!-- Bootstrap core JavaScript -->
     <script src="assets/jquery/jquery.min.js"></script>
