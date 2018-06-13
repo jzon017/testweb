@@ -1,6 +1,7 @@
 class SessionsController < ApplicationController
  	def show
   	end
+
 	def create
 		user = User.find_by(email: params[:email])
 
@@ -13,8 +14,16 @@ class SessionsController < ApplicationController
 		 	flash.now[:danger] = "Your email or password is incorrect!"
 		 	render 'show'
 		 end
-		#User.create(name: "daryl", email: params[:email], password: params[:password])
+
+		#Create account
+		#User.create(gName: params[:gName], lName: [:lName], email: params[:email], password: params[:password])
+
+		#Delete account
+		# u = User.find_by(email: params[:email])
+		# u.authenticate(password: params[:password])
+		# u.destroy
 	end
+
 	def out
 		session[:user_id] = nil
 		flash[:success] = "Signing out!"

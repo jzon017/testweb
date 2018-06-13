@@ -3,11 +3,13 @@
 one:
   gName: MyString
   lName: MyString
-  email: MyString
-  password_digest: MyString
+  wAssigned: MyString
+  timein: 2018-06-13 11:32:22
+  timeout: 2018-06-13 11:32:22
 
 two:
   gName: MyString
   lName: MyString
-  email: MyString
-  password_digest: MyString
+  wAssigned: MyString
+  timein: 2018-06-13 11:32:22
+  timeout: 2018-06-13 11:32:22

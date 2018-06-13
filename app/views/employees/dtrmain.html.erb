@@ -32,49 +32,51 @@
 <div class="container">
     <div class="row">
         <div class="col-md-6 col-centered" style="margin-top: 80px;">
+            <%= form_tag '/dtrmain' do %>
             <div class="panel panel-default">
                 <div class="panel-body">
                     <h5 class="text-center">
-                        SIGN UP</h5>
+                        Daily Time Record</h5>
                     <form class="form form-signup" role="form">
                     <div class="form-group">
-                        <div class="input-group">
+                        <div class="input-group" id="gName">
                             <span class="input-group-addon"><span class="fa fa-2x fa-user"></span></span>
-                            <input type="text" class="form-control" placeholder="Given Name" />
+                            <%= text_field_tag :gName, nil, class: 'form-control'%>
                         </div>
                     </div>
                     <div class="form-group">
-                        <div class="input-group">
-                            <span class="input-group-addon"><span class="glyphicon glyphicon-user"></span></span>
-                            <input type="text" class="form-control" placeholder="Last Name" />
+                        <div class="input-group" id="lName">
+                            <span class="input-group-addon"><span class="fa fa-2x fa-user"></span></span>
+                            <%= text_field_tag :lName, nil, class: 'form-control'%>
                         </div>
                     </div>
                     <div class="form-group">
-                        <div class="input-group">
-                            <span class="input-group-addon"><span class="glyphicon glyphicon-envelope"></span>
+                        <div class="input-group" id="wAssigned">
+                            <span class="input-group-addon"><span class="fa fa-2x fa-briefcase"></span>
                             </span>
-                            <input type="text" class="form-control" placeholder="Email Address" />
+                            <%= text_field_tag :wAssigned, nil, class: 'form-control'%>
                         </div>
                     </div>
                     <div class="form-group">
-                        <div class="input-group">
-                            <span class="input-group-addon"><span class="glyphicon glyphicon-lock"></span></span>
-                            <input type="password" class="form-control" placeholder="Password" />
+                        <div class="input-group" id="timeIn">
+                            <span class="input-group-addon"><span class="fa fa-2x fa-clock"></span></span>
+                            <%= text_field_tag :timeIn, nil, class: 'form-control'%>
                         </div>
                     </div>
                     <div class="form-group">
-                        <div class="input-group">
-                            <span class="input-group-addon"><span class="glyphicon glyphicon-lock"></span></span>
-                            <input type="password" class="form-control" placeholder="Confirm Password" />
+                        <div class="input-group" id="timeOut">
+                            <span class="input-group-addon"><span class="fa fa-2x fa-clock"></span></span>
+                            <%= text_field_tag :timeOut, nil, class: 'form-control'%>
                         </div>
                     </div>
                 </div>
-                <a href="http://www.jquery2dotnet.com" class="btn btn-sm btn-primary btn-block" role="button">
-                    SUBMIT</a> </form>
+                <%= submit_tag 'Time In', class: 'btn btn-lg btn-primary btn-block' %>
+                <%= submit_tag 'Time Out', class: 'btn btn-lg btn-primary btn-block' %> </form><% end %>
             </div>
         </div>
     </div>
 </div>
+
 </div> 
 
 

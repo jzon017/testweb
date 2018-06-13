@@ -1,0 +1,2 @@
+class Dtr < ApplicationRecord
+end
