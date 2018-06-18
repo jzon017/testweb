@@ -18,7 +18,10 @@ Rails.application.routes.draw do
 
   #dtrmain
   get 'dtrmain', to: 'employees#dtrmain'
+  post 'dtrmain', to: 'employees#gettime'
   #get 'employees/dtr'
   #get '/pages', to: 'pages#phil', as: 'pages'
   #resources :employees
+
+  get 'dtr_output', to: 'employees#dtr_output'
 end
