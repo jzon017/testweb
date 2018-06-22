@@ -6,18 +6,19 @@ class SessionsController < ApplicationController
 		user = User.find_by(email: params[:email])
 
 		 if user && user.authenticate(params[:password])
-		 	session[:user_id] = user.id
-
-		 	flash[:success] = "Welcome to InSpecIT Inc."
-		 	redirect_to root_path
+		 	if  User.find_by(email: params[:email]).email != "admin@example.com"
+		 		session[:user_id] = user.id
+		 		redirect_to dtrmain_path
+		 	else
+		 		session[:user_id] = user.id
+		 		redirect_to dtr_output_path
+		 	end
 		 else
 		 	flash.now[:danger] = "Your email or password is incorrect!"
 		 	render 'show'
 		 end
 
-		#Create account
-		#User.create(gName: params[:gName], lName: [:lName], email: params[:email], password: params[:password])
-
+		
 		#Delete account
 		# u = User.find_by(email: params[:email])
 		# u.authenticate(password: params[:password])
@@ -25,8 +26,7 @@ class SessionsController < ApplicationController
 	end
 
 	def out
-		session[:user_id] = nil
-		flash[:success] = "Signing out!"
-		redirect_to root_path
+		reset_session
+		redirect_to signin_path
 	end
 end

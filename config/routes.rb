@@ -23,5 +23,9 @@ Rails.application.routes.draw do
   #get '/pages', to: 'pages#phil', as: 'pages'
   #resources :employees
 
+  #dtroutput
   get 'dtr_output', to: 'employees#dtr_output'
+
+  #logout
+  #post 'signout', to: 'sessions#out'
 end

@@ -4,10 +4,19 @@ class EmployeesController < ApplicationController
 
 	def create
 		#if  password: [params :password] == cpassword: [params :cpassword]
-			User.create(gName: params[:gName], lName: [:lName], email: params[:email], password: params[:password])
-			#redirect_to root_path
+		#Error handling for the input
+		str = params[:gName]
+		str1 = params[:lName]
+		chk = str.count('0-9' + '!-?' + ' ') > 0 || str1.count('0-9' + '!-?' + ' ') > 0
+		if chk == false
+			User.create(gName: params[:gName], lName: params[:lName], email: params[:email], password: params[:password])
+			redirect_to signin_path
 		# else
 		# end
+		else
+			#Need prompt error!
+			redirect_to root_path
+		end
 	end
 
 	def dtrmain
@@ -17,16 +26,16 @@ class EmployeesController < ApplicationController
 
 		#Get current time
 		require 'date'
-		d = DateTime.now
+		d = Time.now
 		d.strftime("%d/%m/%Y %H:%M")
-		da = DateTime.now
+		da = Time.now
 		da.strftime("%d/%m/%Y")
 
 		if params[:commit] == 'Time In'
 			if User.find_by(gName: params[:gName], lName: params[:lName])
 				if da = :timein
 					if Dtr.find_by(gName: params[:gName], lName: params[:lName])
-					redirect_to root_path
+					#redirect_to root_path
 					else
 					Dtr.create(gName: params[:gName], lName: params[:lName], wAssigned: params[:wAssigned], timein: d)
 					#Dito idisplay sa textbox timein
@@ -50,6 +59,6 @@ class EmployeesController < ApplicationController
 	end
 
 	def dtr_output
-		@users = User.all
+		@dtrs = Dtr.all
 	end
 end

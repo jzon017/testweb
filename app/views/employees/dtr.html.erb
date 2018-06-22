@@ -41,13 +41,13 @@
                     <div class="form-group">
                         <div class="input-group" id="gName">
                             <span class="input-group-addon"><span class="fa fa-2x fa-user"></span></span>
-                            <%= text_field_tag :gName, nil, class: 'form-control'%>
+                            <%= text_field_tag :gName, nil, class: 'form-control', :maxlength => 15, :size => 40 %>
                         </div>
                     </div>
                     <div class="form-group">
                         <div class="input-group" id="lName">
                             <span class="input-group-addon"><span class="fa fa-2x fa-user"></span></span>
-                            <%= text_field_tag :lName, nil, class: 'form-control'%>
+                            <%= text_field_tag :lName, nil, class: 'form-control', :maxlength => 15, :size => 40 %>
                         </div>
                     </div>
                     <div class="form-group">
@@ -60,13 +60,13 @@
                     <div class="form-group">
                         <div class="input-group" id="pWord">
                             <span class="input-group-addon"><span class="fa fa-2x fa-key"></span></span>
-                            <%= password_field_tag :password, nil, class: 'form-control'%>
+                            <%= password_field_tag :password, nil, class: 'form-control', :maxlength => 20, :size => 40 %>
                         </div>
                     </div>
                     <div class="form-group">
                         <div class="input-group" id="cpWord">
                             <span class="input-group-addon"><span class="fa fa-2x fa-key"></span></span>
-                            <%= password_field_tag :cpassword, nil, class: 'form-control'%>
+                            <%= password_field_tag :cpassword, nil, class: 'form-control', :maxlength => 20, :size => 40%>
                         </div>
                     </div>
                 </div>
