@@ -9,12 +9,28 @@ class EmployeesController < ApplicationController
 		str1 = params[:lName]
 		chk = str.count('0-9' + '!-?' + ' ') > 0 || str1.count('0-9' + '!-?' + ' ') > 0
 		if chk == false
-			User.create(gName: params[:gName], lName: params[:lName], email: params[:email], password: params[:password])
-			redirect_to signin_path
-		# else
-		# end
+			if (params[:gName] != ("" || nil) ) && (params[:lName] != ("" || nil)) && (params[:email] != ("" || nil)) && (params[:password] != ("" || nil)) && (params[:cpassword] != ("" || nil))
+				tst = User.find_by(gName: params[:gName], lName: params[:lName], email: params[:email])
+				tst1 = User.find_by(email: params[:email])
+				if tst == nil
+					if tst1 == nil
+						User.create(gName: params[:gName], lName: params[:lName], email: params[:email], password: params[:password])
+						redirect_to signin_path
+						#Notification success na nakapagcreate na
+					else
+						redirect_to root_path
+						#Notification merong existing email	
+					end
+				else
+					redirect_to root_path
+					#Notification existing yung account
+				end
+			else
+				#Notification error na dapat walang blank
+				redirect_to root_path
+			end
 		else
-			#Need prompt error!
+			#Notification format error
 			redirect_to root_path
 		end
 	end
@@ -26,32 +42,41 @@ class EmployeesController < ApplicationController
 
 		#Get current time
 		require 'date'
-		d = Time.now
-		d.strftime("%d/%m/%Y %H:%M")
-		da = Time.now
-		da.strftime("%d/%m/%Y")
+		d = Time.current
+		d.strftime("%d-%m-%Y %H:%M")
+		da = Time.current
+		da.strftime("%d-%m-%Y")
+		
 
 		if params[:commit] == 'Time In'
 			if User.find_by(gName: params[:gName], lName: params[:lName])
-				if da = :timein
-					if Dtr.find_by(gName: params[:gName], lName: params[:lName])
-					#redirect_to root_path
+				if Dtr.find_by(gName: params[:gName], lName: params[:lName]) != nil
+					dar = Dtr.where(gName: params[:gName], lName: params[:lName]).last.timein
+					dar.strftime("%d-%m-%Y")
+					if da.strftime("%d-%m-%Y") == dar.strftime("%d-%m-%Y") 
+						#Prompt already timed in
+						redirect_to dtrmain_path
 					else
-					Dtr.create(gName: params[:gName], lName: params[:lName], wAssigned: params[:wAssigned], timein: d)
-					#Dito idisplay sa textbox timein
-					end
-				else
+						Dtr.create(gName: params[:gName], lName: params[:lName], wAssigned: params[:wAssigned], timein: d)
+						#Notification success timein
+       				end
+       			else
+       				Dtr.create(gName: params[:gName], lName: params[:lName], wAssigned: params[:wAssigned], timein: d)
+       				#Notification success timein
        			end
        		else
+       			#Notification hindi existing yung acct
        		end
     	elsif params[:commit] == 'Time Out'
-    		if User.find_by(gName: params[:gName], lName: params[:lName])
-    			if a = Dtr.find_by(gName: params[:gName], lName: params[:lName])
-    			a.timeout = d
-    			a.save
-    			#Dito idisplay sa textbox timeout
-    			redirect_to root_path
+    		if User.where(gName: params[:gName], lName: params[:lName]).last
+    			if Dtr.where(gName: params[:gName], lName: params[:lName]).last.timeout == nil
+    				a = Dtr.where(gName: params[:gName], lName: params[:lName]).last
+    				a.timeout = d
+    				a.save
+    				#Dito idisplay sa textbox timeout
     			else
+    				redirect_to root_path
+    				#prompt already timed out
     			end
     		else
     		end
@@ -60,5 +85,31 @@ class EmployeesController < ApplicationController
 
 	def dtr_output
 		@dtrs = Dtr.all
+	end
+
+	def reg
+	end
+	def forgotpass
+		if params[:enter] == 'Submit'
+			if User.find_by(email: params[:email])
+				a = User.find_by(email: params[:email]).password_digest
+				b = (BCrypt::Password.new(a) == params[:opassword])
+				c = User.find_by(email: params[:email])
+				if b == true
+					if params[:npassword] == params[:cnpassword]
+						c.password_digest = BCrypt::Password.create(params[:npassword])
+						c.save
+						redirect_to signin_path
+						#Notification success yung timeout
+					else
+						#Notification error na dapat pareho yung new pass at confirm pass
+					end
+				else
+					redirect_to reg_path
+				end
+			else
+			end
+		else
+		end
 	end
 end

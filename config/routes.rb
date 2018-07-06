@@ -28,4 +28,8 @@ Rails.application.routes.draw do
 
   #logout
   #post 'signout', to: 'sessions#out'
+
+  #forgot password
+  get 'reg', to: 'employees#reg'
+  post 'reg', to: 'employees#forgotpass'
 end
