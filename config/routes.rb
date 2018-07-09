@@ -25,6 +25,7 @@ Rails.application.routes.draw do
 
   #dtroutput
   get 'dtr_output', to: 'employees#dtr_output'
+  post 'dtr_output', to: 'employees#dtr_output'
 
   #logout
   #post 'signout', to: 'sessions#out'

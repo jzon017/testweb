@@ -85,6 +85,18 @@ class EmployeesController < ApplicationController
 
 	def dtr_output
 		@dtrs = Dtr.all
+		if params[:commit] == 'Submit'
+			if params[:date1] != params[:date2]
+				@dtrs = Dtr.where('timein BETWEEN ? AND ?', params[:date1], (Date.parse(params[:date2])+1.day)).all
+				#User input date range
+			elsif params[:date1] == params[:date2]
+				@dtrs = Dtr.where('timein BETWEEN ? AND  ?', params[:date1], (Date.parse(params[:date2])+1.day)).all
+				#Notif na dapat pareho yung user input date 
+			else
+				@dtrs = Dtr.all
+			end
+		else
+		end
 	end
 
 	def reg
