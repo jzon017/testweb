@@ -10,7 +10,7 @@
     <%= javascript_include_tag 'https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js' %>
 
     <!-- Custom fonts for this template -->
-    <link href="assets/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css"-->
+    <link href="assets/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'>
 
@@ -20,10 +20,10 @@
     <%= stylesheet_link_tag "creative" %>
       
     <%= javascript_include_tag 'particles.min', 'app'%>
-
+    
   </head>
 
-  <body id= "page-top">
+  <body id= "page-top" >
      
 
   <% if content_for?(:navbar) %>
@@ -40,31 +40,33 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarResponsive">
           <ul class="navbar-nav ml-auto">
-            <li class="nav-item">
-              <a class="nav-link js-scroll-trigger" href="#abouts">About</a>
+            <li class="nav-item act">
+              <a class="nav-link js-scroll-trigger" href="#about">About</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link js-scroll-trigger" href="#servicess">Services</a>
+              <a class="nav-link js-scroll-trigger" href="#services">Services</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link js-scroll-trigger" href="#newss">News</a>
+              <a class="nav-link js-scroll-trigger" href="#news">News</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link js-scroll-trigger" href="#globals">Global Network</a>
+              <a class="nav-link js-scroll-trigger" href="#global">Global Network</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link js-scroll-trigger" href="#contacts">Contact</a>
+              <a class="nav-link js-scroll-trigger" href="#contact">Contact</a>
             </li>
           </ul>
         </div>
       </div>
     </nav>
+
+    
     <% end %>
     <%= yield %>
 
 
-
-
+    <%= render 'layouts/footer' %>
+    
     <!-- Bootstrap core JavaScript -->
     <script src="assets/jquery/jquery.min.js"></script>
     <script src="assets/bootstrap/js/bootstrap.bundle.min.js"></script>
@@ -77,12 +79,9 @@
     <!-- Custom scripts for this template -->
     <script src="assets/creative.min.js"></script>
 
-    <!--div class="footer_bottom">
-        <div class="copy">
-            <p>Copyright &copy; 2018</p>
-        </div-->
      <!-- Bootstrap core JavaScript -->
    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+   
   </body>
 </html>

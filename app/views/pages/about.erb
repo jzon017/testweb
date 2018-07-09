@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>About - InSpecIT</title>
+    <link rel="shortcut icon" href="/assets/favicon.ico" />
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag    'https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css' %>
+    <%= javascript_include_tag 'https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js' %>
+
+    <!-- Custom fonts for this template -->
+    <link href="assets/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css"-->
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'>
+
+
+
+
+    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
+
+    <link href="https://fonts.googleapis.com/css?family=Oleo+Script:400,700" rel="stylesheet">
+   	<link href="https://fonts.googleapis.com/css?family=Teko:400,700" rel="stylesheet">
+
+    <!-- Plugin CSS -->
+    <link href="assets/magnific-popup/magnific-popup.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+   
+  </head>
+
+  <body>
+
+    <% content_for(:navbar) do %>
+    <%= render 'layouts/pages' %>
+    
+    <% end %>
+    <%= yield %>
+    <!--section class="aboutus" style=" margin-top: 50px; "-->
+
+
+
+
+
+<div class="wrap" style="margin-top: 80px;">
+    <div class="floatleft">
+      <div class="text-white" style="margin-top: 100px;margin-left: 20px; margin-right: 20px; text-align:center;">
+      <h2><strong>INSPECIT INC.</strong></h2>
+      <hr class="primary my-3">
+      <p>We specialize in Marine Control Instruments Calibration and Power Systems. We are a Panel Builder providing Supply, Installation, Testing and Commissioning of Motor Controls, ATS, Synchronizing Panels, Load Sharing and Load Shedding Controls, Switchgears and all other Electrical Automation.</p>
+    </div>
+  </div>
+    <div class="floatright" >
+    </div>
+    <div style="clear: both;"></div>
+</div>
+   <section class="section--mystic " id="covmoc" style="background-color: #ededed; margin-top:-60px;">
+  <div class="container" style="margin-top: 60px; margin-left: 125px; ">
+    <table cellspacing="0"  style="width: 100%">
+        <tr>
+            <td style="vertical-align: middle;  height: 40px;" >
+                <h3><strong><a href=#covmoc style = "color:#fc4d4d;"onclick="showhide(event,'overview')">COMPANY OVERVIEW</a></strong></h3>
+            </td>
+            <td style="vertical-align: middle;">
+                <h3><strong><a href=#covmoc style = "color:#fc4d4d;"onclick="showhide(event,'vandm')">VISION AND MISSION</a></strong></h3>
+            </td>
+            <td style="vertical-align: middle;">
+                <h3><strong><a href=#covmoc style = "color:#fc4d4d;"onclick="showhide(event,'orgch')">ORGANIZATIONAL CHART</a></strong></h3>
+            </td>
+            </tr>
+    </table>
+  </div>
+</section>
+
+<div id="overview" class="tabcontent"style="text-align: center;display:none; transition: visibility 0s, opacity 0.5s linear; margin-right: 50px; margin-bottom: 40px;" >
+  <br>
+ <ul><ul>
+ <h3><strong>COMPANY OVERVIEW</strong></h3>
+ <hr class="primary my-3">
+  <p><br>InSpecIT Inc. was incorporated July of 2008. We are more than ten (10) years in actual operation with a very dynamic and aggressive team doing Electrical, Instrumentation, Electro-Mechanical, Automation and Control System Integration and Design Works. We do turnkey projects for Marine, Industrial and Commercial Market.</br><br>
+
+We supply and install “state-of-the-art technology” i.e. Building Management Systems, Factory and Process Automation and Auxiliary Systems such as FDAS, Structured Cabling, CCTV Systems, Central Power Metering, Power Monitoring System, LAN, WAN, Wifi, IP PaBX as well as Access Control Systems.</br></p></ul></div></ul>
+</div>
+
+
+<div id="vandm" class="tabcontent" style="text-align: center;display:none; transition: visibility 0s, opacity 0.5s linear; margin-right: 50px; margin-bottom:40px; " >
+  <br>
+ <ul><ul>
+ <h3><strong>OUR VISION</strong></h3>
+ <hr class="primary my-3">
+ <br>
+  <p>To be recognized as the leading instrumentation and automation business partner providing marine, industrial, and commercial market with consistent quality service</p><br></br>
+<h3><strong>OUR MISSION</strong></h3>
+ <hr class="primary my-3">
+ <br>
+  <p>We commit to build long-term value to our stakeholders.<br></br><br>
+
+To our business partners, suppliers, clients, sub-contractors, we will strive for long lasting relationship and profitable growth through superior customer service, safe, ethical, and efficient service delivery.</br><br>
+
+To our employees, we will provide them and their families better lives by providing a great and safe work place, valuable work experiences, opportunity for career growth, and compensation package that is compliant to regulatory laws, performance-based and anchored on moral standards.</br>
+</p></ul></div></ul>
+</div>
+
+<div id="orgch" class="tabcontent" style="text-align: center;display:none; transition: visibility 0s, opacity 0.5s linear; margin-right: 50px; margin-bottom:40px; " >
+  <br>
+ <ul><ul>
+ <h3><strong>ORGANIZATIONAL CHART</strong></h3>
+ <hr class="primary my-3">
+  <p><br>Under Construction</br></p></ul></div></ul>
+</div>
+
+    <script src="assets/showhide.js"></script>
+    <!-- Bootstrap core JavaScript -->
+    <script src="assets/jquery/jquery.min.js"></script>
+    <script src="assets/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Plugin JavaScript -->
+    <script src="assets/jquery-easing/jquery.easing.min.js"></script>
+    <script src="assets/scrollreveal/scrollreveal.min.js"></script>
+    <script src="assets/magnific-popup/jquery.magnific-popup.min.js"></script>
+
+    <!-- Custom scripts for this template -->
+    <script src="assets/creative.min.js"></script>
+    <!--div class="footer_bottom">
+        <div class="copy">
+            <p>Copyright &copy; 2018</p>
+        </div-->
+     <!-- Bootstrap core JavaScript -->
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  </body>
+</html>

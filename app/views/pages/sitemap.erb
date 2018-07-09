@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <title>Site Map - InSpecIT</title>
     <link rel="shortcut icon" href="/assets/favicon.ico" />
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
@@ -13,36 +14,48 @@
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'>
 
+
+
+
+    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
+
+    <link href="https://fonts.googleapis.com/css?family=Oleo+Script:400,700" rel="stylesheet">
+   	<link href="https://fonts.googleapis.com/css?family=Teko:400,700" rel="stylesheet">
+
     <!-- Plugin CSS -->
     <link href="assets/magnific-popup/magnific-popup.css" rel="stylesheet">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
-    <%= stylesheet_link_tag "creative" %>
-      
+   
   </head>
 
-  <body id= "page-top">
-    <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
+  <body>
 
-      <div class="container">
-        <a class="navbar-brand js-scroll-trigger" href="#page-top">INSPECIT</a>
-        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarResponsive">
-          <ul class="navbar-nav ml-auto">
-            <li class="nav-item">
-              <a class="nav-link js-scroll-trigger" href="#signin">Sign In</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link js-scroll-trigger" href="#signup">Sign Up</a>
-            </li>
+    <% content_for(:navbar) do %>
+    <%= render 'layouts/pages' %>
+    <% end %>
+   
+    <%= yield %>
+   <section style="background-color: #ededed;">
+        <div class="col-xs-12 col-sm-12 col-md-12 text-black " style=" height: 100px; margin-top: 50px; margin-left: 100px; margin-bottom:-50px;">
+          <h1><strong>SITE MAP</strong></h1>
+        </div>
+      </section>
+        <!--div class="container" style="margin-top: 20px; background-color: #ffffff;"-->
+    <div class="row text-center text-xs-center text-sm-left text-md-left" style="background-color:#ffffff;margin-top: 20px;   margin-bottom: 40px;">
+        <div class="col-xs-12 col-sm-4 col-md-4">
+          <ul class="list-unstyled quick-links "style="margin-top:30px; margin-bottom:30px; margin-left: 120px;">
+            <h6><li><a href="home" class="text-primary1"><i class="fa fa-angle-double-right "><strong></i> HOME</strong></a></li></h6>
+            <h6><li><a href="about"class="text-primary1"><i class="fa fa-angle-double-right"><strong></i> ABOUT</strong></a></li></h6>
+            <h6><li><a href="services"class="text-primary1"><i class="fa fa-angle-double-right"><strong></i> SERVICES</strong></a></li></h6>
+            <h6><li><a href="projects"class="text-primary1"><i class="fa fa-angle-double-right"><strong></i> PROJECTS</strong></a></li></h6>
+            <h6><li><a href="news"class="text-primary1"><i class="fa fa-angle-double-right"><strong></i> NEWS</strong></a></li></h6>
+            <h6><li><a href="contact"class="text-primary1"><i class="fa fa-angle-double-right"><strong></i> CONTACT</strong></a></li></h6>
           </ul>
         </div>
+        </div>
       </div>
-    </nav>
-    <%= yield %>
-
-
+    </div>
 
 
     <!-- Bootstrap core JavaScript -->
@@ -56,7 +69,6 @@
 
     <!-- Custom scripts for this template -->
     <script src="assets/creative.min.js"></script>
-
     <!--div class="footer_bottom">
         <div class="copy">
             <p>Copyright &copy; 2018</p>

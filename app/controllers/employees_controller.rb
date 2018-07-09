@@ -55,13 +55,15 @@ class EmployeesController < ApplicationController
 					dar.strftime("%d-%m-%Y")
 					if da.strftime("%d-%m-%Y") == dar.strftime("%d-%m-%Y") 
 						#Prompt already timed in
-						redirect_to dtrmain_path
+						redirect_to root_path
 					else
 						Dtr.create(gName: params[:gName], lName: params[:lName], wAssigned: params[:wAssigned], timein: d)
+						redirect_to root_path
 						#Notification success timein
        				end
        			else
        				Dtr.create(gName: params[:gName], lName: params[:lName], wAssigned: params[:wAssigned], timein: d)
+       				redirect_to root_path
        				#Notification success timein
        			end
        		else

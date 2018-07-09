@@ -5,7 +5,10 @@ Rails.application.routes.draw do
   get 'dtr' => 'employees#dtr'
   get 'contact' => 'pages#contact'
   get 'services' => 'pages#services'
-  get 'home' => 'welcome#home'
+  get 'about' => 'pages#about'
+  get 'news' => 'pages#news'
+  get 'sitemap' => 'pages#sitemap'
+  get 'projects' => 'pages#projects'
   
   #Signin
   get 'signin', to: 'sessions#show'
