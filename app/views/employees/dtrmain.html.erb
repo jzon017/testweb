@@ -41,40 +41,46 @@
                     <div class="form-group">
                         <div class="input-group" id="gName">
                             <span class="input-group-addon"><span class="fa fa-2x fa-user"></span></span>
-                            <%= text_field_tag :gName, nil, class: 'form-control'%>
+                            <%= text_field_tag :gName, nil, class: 'form-control',placeholder: "Given Name", :required => 'required'%>
                         </div>
                     </div>
                     <div class="form-group">
                         <div class="input-group" id="lName">
                             <span class="input-group-addon"><span class="fa fa-2x fa-user"></span></span>
-                            <%= text_field_tag :lName, nil, class: 'form-control'%>
+                            <%= text_field_tag :lName, nil, class: 'form-control',placeholder: "Last Name", :required => 'required'%>
                         </div>
                     </div>
                     <div class="form-group">
                         <div class="input-group" id="wAssigned">
                             <span class="input-group-addon"><span class="fa fa-2x fa-briefcase"></span>
                             </span>
-                            <%= text_field_tag :wAssigned, nil, class: 'form-control'%>
+                            <%= text_field_tag :wAssigned, nil, class: 'form-control',placeholder: "Work Assigned", :required => 'required'%>
                         </div>
                     </div>
                     <div class="form-group">
                         <div class="input-group" id="timeIn">
                             <span class="input-group-addon"><span class="fa fa-2x fa-clock"></span></span>
-                            <%= text_field_tag :timeIn, nil, class: 'form-control'%>
-                        </div>
+                            <%= text_field_tag :timeIn, nil, class: 'form-control',placeholder: "Time In", :disabled=>true%>
+                            </div>
                     </div>
                     <div class="form-group">
                         <div class="input-group" id="timeOut">
                             <span class="input-group-addon"><span class="fa fa-2x fa-clock"></span></span>
-                            <%= text_field_tag :timeOut, nil, class: 'form-control'%>
+                            <%= text_field_tag :timeOut, nil, class: 'form-control',placeholder: "Time Out",:disabled=>true%>
 
                         </div>
                     </div>
                 </div>
-<!--                 <%= submit_tag 'Time In', class: 'btn btn-lg btn-primary btn-block'%>
-                <%= submit_tag 'Time Out', class: 'btn btn-lg btn-primary btn-block'%> --> 
-                <input type="submit" value="Time In" id=".." name="commit"/>
-                <input type="submit" value="Time Out" id=".." name="commit"/>
+<!--                 <%= submit_tag 'Time In', class: 'btn-lg btn-primary btn-block'%>
+                <%= submit_tag 'Time Out', class: 'btn-lg btn-primary btn-block'%> --> 
+                <div class="row" style="margin-bottom: 20px;">
+                <div class = "col-md-4 col-centered">
+                <input type="submit" value="Time In" id=".." name="commit" class="btn-xl btn-primary btn-block"/>
+                </div>
+                <div class = "col-md-4 col-centered">
+                <input type="submit" value="Time Out" id=".." name="commit" class="btn-xl btn-primary btn-block" />
+                </div>
+                </div>
                 </form>
                 <% end %>
             </div>

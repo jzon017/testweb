@@ -7,16 +7,20 @@ class EmployeesController < ApplicationController
 		#Error handling for the input
 		str = params[:gName]
 		str1 = params[:lName]
-		chk = str.count('0-9' + '!-?' + ' ') > 0 || str1.count('0-9' + '!-?' + ' ') > 0
-		if chk == false
+		#chk = str.count('0-9' + '!-?' + ' ') > 0 || str1.count('0-9' + '!-?' + ' ') > 0
+		#if chk == false
 			if (params[:gName] != ("" || nil) ) && (params[:lName] != ("" || nil)) && (params[:email] != ("" || nil)) && (params[:password] != ("" || nil)) && (params[:cpassword] != ("" || nil))
 				tst = User.find_by(gName: params[:gName], lName: params[:lName], email: params[:email])
 				tst1 = User.find_by(email: params[:email])
 				if tst == nil
 					if tst1 == nil
+						if params[:password] == params[:cpassword]
 						User.create(gName: params[:gName], lName: params[:lName], email: params[:email], password: params[:password])
 						redirect_to signin_path
 						#Notification success na nakapagcreate na
+					 	else
+							#Notification na hindi same yung password sa confirm password
+						end
 					else
 						redirect_to root_path
 						#Notification merong existing email	
@@ -29,10 +33,10 @@ class EmployeesController < ApplicationController
 				#Notification error na dapat walang blank
 				redirect_to root_path
 			end
-		else
+		#else
 			#Notification format error
-			redirect_to root_path
-		end
+		#	redirect_to root_path
+		#end
 	end
 
 	def dtrmain
@@ -47,7 +51,6 @@ class EmployeesController < ApplicationController
 		da = Time.current
 		da.strftime("%d-%m-%Y")
 		
-
 		if params[:commit] == 'Time In'
 			if User.find_by(gName: params[:gName], lName: params[:lName])
 				if Dtr.find_by(gName: params[:gName], lName: params[:lName]) != nil
@@ -70,7 +73,7 @@ class EmployeesController < ApplicationController
        			#Notification hindi existing yung acct
        		end
     	elsif params[:commit] == 'Time Out'
-    		if User.where(gName: params[:gName], lName: params[:lName]).last
+    		if User.where(gName: params[:gName], lName: params[:lName], wAssigned: params[:wAssigned]).last
     			if Dtr.where(gName: params[:gName], lName: params[:lName]).last.timeout == nil
     				a = Dtr.where(gName: params[:gName], lName: params[:lName]).last
     				a.timeout = d
@@ -88,15 +91,15 @@ class EmployeesController < ApplicationController
 	def dtr_output
 		@dtrs = Dtr.all
 		if params[:commit] == 'Submit'
-			if params[:date1] != params[:date2]
-				@dtrs = Dtr.where('timein BETWEEN ? AND ?', params[:date1], (Date.parse(params[:date2])+1.day)).all
-				#User input date range
-			elsif params[:date1] == params[:date2]
-				@dtrs = Dtr.where('timein BETWEEN ? AND  ?', params[:date1], (Date.parse(params[:date2])+1.day)).all
-				#Notif na dapat pareho yung user input date 
-			else
-				@dtrs = Dtr.all
-			end
+				if params[:date1] != params[:date2]
+					@dtrs = Dtr.where('timein BETWEEN ? AND ?', params[:date1], (Date.parse(params[:date2])+1.day)).all
+					#User input date range
+				elsif params[:date1] == params[:date2]
+					@dtrs = Dtr.where('timein BETWEEN ? AND  ?', params[:date1], (Date.parse(params[:date2])+1.day)).all
+					#Notif na dapat pareho yung user input date 
+				else
+					@dtrs = Dtr.all
+				end
 		else
 		end
 	end
@@ -116,6 +119,7 @@ class EmployeesController < ApplicationController
 						redirect_to signin_path
 						#Notification success yung timeout
 					else
+						redirect_to reg_path
 						#Notification error na dapat pareho yung new pass at confirm pass
 					end
 				else
